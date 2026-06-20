@@ -1,0 +1,65 @@
+<div id="auth-page" class="page">
+  <div class="auth-left">
+    <div class="auth-logo logo-mark">
+      <div class="logo-dot"></div>
+      PrepSpark
+    </div>
+    <h1 class="auth-heading">Practice smarter.<br>Interview with <em>confidence.</em></h1>
+    <p class="auth-sub">PrepSpark is your personal AI interview coach — not a hiring platform. Practise, get real feedback, and walk into interviews ready.</p>
+    <ul class="feature-list">
+      <li><div class="icon">🎯</div> Adaptive technical &amp; behavioural questions</li>
+      <li><div class="icon">👁</div> Real-time gaze &amp; emotion analysis</li>
+      <li><div class="icon">🎙</div> Voice confidence — jitter, WPM, pitch</li>
+      <li><div class="icon">📊</div> Detailed post-session performance report</li>
+    </ul>
+  </div>
+
+  <div class="auth-right">
+    <div class="tab-switcher">
+      <button class="tab-btn active" onclick="switchAuthTab('login')">Sign In</button>
+      <button class="tab-btn" onclick="switchAuthTab('register')">Register</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="login-form">
+      <h2 class="auth-form-title">Welcome back.</h2>
+      <p class="auth-form-sub">Sign in to continue your practice.</p>
+      <div id="login-error" class="error-msg"></div>
+      <div class="form-group">
+        <label class="form-label">Username or Email</label>
+        <input type="text" id="login-identifier" class="form-input" placeholder="john_dev or john@email.com" autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" id="login-password" class="form-input" placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <button class="btn-primary" onclick="handleLogin()">Sign In →</button>
+    </div>
+
+    <!-- REGISTER -->
+    <div id="register-form" class="hidden">
+      <h2 class="auth-form-title">Create account.</h2>
+      <p class="auth-form-sub">Start your first AI-powered practice session.</p>
+      <div id="register-error" class="error-msg"></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="reg-fullname" class="form-input" placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Username</label>
+          <input type="text" id="reg-username" class="form-input" placeholder="john_dev">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" id="reg-email" class="form-input" placeholder="john@example.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" id="reg-password" class="form-input" placeholder="Min. 8 characters">
+      </div>
+      <button class="btn-primary" onclick="handleRegister()">Create Account →</button>
+    </div>
+  </div>
+</div>

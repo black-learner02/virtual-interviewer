@@ -1,0 +1,329 @@
+/* ═══════════════════════════════════════════════════
+   PrepSpark — Auth, Dashboard & Setup Styles
+   ═══════════════════════════════════════════════════ */
+
+/* ─── AUTH PAGE ─── */
+#auth-page { align-items: stretch; }
+
+.auth-left {
+  width: 55%;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.auth-left::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  top: -200px; left: -200px;
+  pointer-events: none;
+}
+
+.auth-logo { font-size: 28px; letter-spacing: -0.5px; margin-bottom: 80px; }
+.auth-heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(36px, 4vw, 54px);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+.auth-heading em { font-style: italic; color: var(--accent); }
+.auth-sub {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 380px;
+  margin-bottom: 60px;
+  font-weight: 300;
+}
+
+.feature-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.feature-list li .icon {
+  width: 32px; height: 32px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.auth-right {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px;
+  position: relative;
+}
+.auth-right::before {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(34,212,163,0.08) 0%, transparent 70%);
+  bottom: -100px; right: -100px;
+  pointer-events: none;
+}
+
+.tab-switcher {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 40px;
+  width: fit-content;
+}
+.tab-btn {
+  padding: 8px 24px;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 7px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.tab-btn.active {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border-active);
+}
+
+.auth-form-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 30px;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+.auth-form-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 32px; }
+
+/* ─── DASHBOARD PAGE ─── */
+#dashboard-page { flex-direction: column; min-height: 100vh; }
+.dashboard-body { padding: 48px; flex: 1; }
+
+.dash-header { margin-bottom: 48px; }
+.dash-greeting {
+  font-family: 'DM Serif Display', serif;
+  font-size: 40px;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+.dash-sub { color: var(--text-muted); font-size: 15px; font-weight: 300; }
+
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.dash-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  cursor: pointer;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.dash-card:hover {
+  border-color: var(--border-active);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.dash-card-tag {
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  display: inline-block;
+}
+.tag-technical { background: rgba(124,106,247,0.15); color: var(--accent); }
+.tag-practice { background: rgba(34,212,163,0.12); color: var(--accent-2); }
+.dash-card-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+.dash-card-role {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.dash-card-date { font-size: 12px; color: var(--text-dim); font-family: 'DM Mono', monospace; }
+.dash-card-score {
+  position: absolute;
+  top: 24px; right: 24px;
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px;
+  opacity: 0.5;
+}
+
+.new-interview-card {
+  background: none;
+  border: 1px dashed var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 180px;
+}
+.new-interview-card:hover { border-color: var(--accent); background: var(--accent-glow); }
+.new-interview-icon { font-size: 28px; color: var(--accent); }
+.new-interview-label { font-size: 14px; color: var(--text-muted); }
+
+/* Resume card — in-progress sessions */
+.dash-card.resumable {
+  border-color: rgba(245,166,35,0.25);
+  background: rgba(245,166,35,0.03);
+}
+.dash-card.resumable:hover { border-color: rgba(245,166,35,0.5); }
+.dash-card-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 7px 14px;
+  background: rgba(245,166,35,0.12);
+  border: 1px solid rgba(245,166,35,0.3);
+  border-radius: 8px;
+  color: var(--warn);
+  font-size: 12px;
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+}
+
+/* Dashboard section headers */
+.dash-section-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.dash-section-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Shared nav for report + dashboard */
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-shrink: 0;
+}
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: 'DM Mono', monospace;
+}
+.btn-nav {
+  padding: 8px 18px;
+  font-size: 13px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-nav:hover { border-color: var(--border-active); color: var(--text); }
+
+/* ─── SETUP PAGE ─── */
+#setup-page {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+.setup-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 60px;
+  width: 100%;
+  max-width: 560px;
+  position: relative;
+  overflow: hidden;
+}
+.setup-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+.setup-logo { font-size: 22px; color: var(--text-muted); margin-bottom: 48px; }
+.setup-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 34px;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+.setup-sub { color: var(--text-muted); font-size: 15px; margin-bottom: 40px; font-weight: 300; }
+.setup-actions { display: flex; gap: 12px; margin-top: 32px; }
+.setup-actions .btn-secondary { flex: 1; }
+.setup-actions .btn-primary { flex: 2; }
+
+@media (max-width: 900px) {
+  .auth-left { display: none; }
+  .auth-right { width: 100%; padding: 40px 28px; }
+  .dashboard-body { padding: 24px; }
+  .setup-card { padding: 36px 28px; }
+}
+/* ── Resume upload format badges ── */
+.fmt-badge {
+  font-size: 10px;
+  font-family: 'DM Mono', monospace;
+  color: var(--text-dim);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  padding: 2px 7px;
+  letter-spacing: 0.04em;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+.fmt-badge-active {
+  color: var(--accent-2);
+  background: rgba(100,220,150,0.1);
+  border-color: rgba(100,220,150,0.3);
+}

@@ -1,0 +1,135 @@
+<!-- INTERVIEW PAGE -->
+<div id="interview-page" class="page">
+
+  <!-- Top Bar -->
+  <div class="iv-topbar">
+    <div class="iv-topbar-left">
+      <div class="logo-mark" style="font-size:18px; color:var(--text-muted);">
+        <div class="logo-dot"></div> PrepSpark
+      </div>
+    </div>
+    <div class="iv-topbar-center">
+      <div class="iv-progress">
+        <div class="iv-progress-pips" id="q-pips"></div>
+        <div class="iv-progress-label" id="iv-progress-label">Question 1 of 5</div>
+      </div>
+    </div>
+    <div class="iv-topbar-right">
+      <span class="iv-role-tag" id="nav-role"></span>
+      <span class="iv-session-id" id="session-badge"></span>
+    </div>
+  </div>
+
+  <!-- Main Stage: Left = question panel, Right = camera -->
+  <div class="iv-stage">
+
+    <!-- LEFT: Question + Controls + Transcript -->
+    <div class="iv-question-panel">
+
+      <!-- Question Card -->
+      <div class="iv-question-card" id="question-card">
+        <div class="iv-q-header">
+          <span class="iv-q-num" id="q-label-text">Question 1 of 5</span>
+          <span class="iv-q-type-badge intro" id="q-type-tag">Introduction</span>
+        </div>
+        <div class="iv-q-text" id="q-text">Initialising your session…</div>
+      </div>
+
+      <!-- Status hint -->
+      <div class="iv-state-hint" id="sidebar-hint">
+        The AI interviewer will speak the question. Recording will enable automatically when they finish.
+      </div>
+
+      <!-- Control Buttons -->
+      <div class="iv-control-buttons">
+        <button class="iv-btn-record" id="btn-record" onclick="toggleRecord()" disabled>
+          <div class="iv-record-icon-wrap">
+            <div class="record-icon"></div>
+          </div>
+          <span id="btn-record-label">Start Recording</span>
+        </button>
+        <button class="iv-btn-submit" id="btn-submit" onclick="submitResponse()">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+          Submit Answer
+        </button>
+      </div>
+
+      <!-- Divider -->
+      <div class="iv-divider"></div>
+
+      <!-- Transcript -->
+      <div class="iv-transcript-section">
+        <div class="iv-transcript-label">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12">
+            <path d="M2 4h12M2 8h8M2 12h10" stroke-linecap="round"/>
+          </svg>
+          Session Transcript
+        </div>
+        <div class="iv-transcript-log" id="transcript-log">
+          <div class="iv-transcript-empty">Your answers will appear here after each submission.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Camera -->
+    <div class="iv-camera-panel">
+
+      <!-- Video Frame — 4:3 -->
+      <div class="iv-video-frame" id="iv-video-frame">
+        <video id="candidate-video" autoplay muted playsinline></video>
+
+        <!-- REC badge (top-left) -->
+        <div class="iv-rec-badge" id="rec-indicator">
+          <div class="rec-dot"></div>
+          <span>REC</span>
+          <span id="timer-badge" class="iv-timer">0:00</span>
+        </div>
+
+        <!-- Camera standby overlay (shown between answers) -->
+        <div class="iv-camera-standby" id="iv-camera-standby">
+          <div class="iv-standby-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36" opacity="0.4">
+              <path d="M15 10l4.553-2.276A1 1 0 0121 8.72v6.56a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
+            </svg>
+          </div>
+          <div class="iv-standby-text">Camera standby</div>
+          <div class="iv-standby-sub">Press Start Recording to activate</div>
+        </div>
+      </div>
+
+      <!-- Camera meta row -->
+      <div class="iv-video-meta">
+        <span class="iv-candidate-name-tag" id="iv-candidate-name">You</span>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <div class="iv-sensor-row">
+            <span class="iv-sensor-label">CAM</span>
+            <span class="sensor-badge" id="sen-camera">Standby</span>
+          </div>
+          <div class="iv-sensor-row">
+            <span class="iv-sensor-label">MIC</span>
+            <span class="sensor-badge" id="sen-mic">Standby</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Processing Overlay -->
+<div class="processing-overlay" id="processing-overlay">
+  <div class="proc-card">
+    <div class="processing-spinner"></div>
+    <div class="processing-title">Analysing your response<span class="loading-dots"></span></div>
+    <div class="processing-steps">
+      <div class="proc-step" id="step-video"><div class="step-dot"></div> Video — gaze &amp; emotion</div>
+      <div class="proc-step" id="step-audio"><div class="step-dot"></div> Audio — pitch &amp; fluency</div>
+      <div class="proc-step" id="step-timeline"><div class="step-dot"></div> Behaviour fusion</div>
+      <div class="proc-step" id="step-ai"><div class="step-dot"></div> AI evaluation &amp; scoring</div>
+    </div>
+  </div>
+</div>

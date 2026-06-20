@@ -1,0 +1,340 @@
+/* ═══════════════════════════════════════════════════
+   PrepSpark — Report Page Styles
+   ═══════════════════════════════════════════════════ */
+
+#report-page { flex-direction: column; min-height: 100vh; }
+
+.report-body {
+  flex: 1;
+  padding: 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ─── Report Header ─── */
+.report-header {
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border);
+}
+.report-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+.report-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.report-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+.meta-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: 'DM Mono', monospace;
+}
+.meta-chip .chip-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-2); }
+
+/* ─── Section Layout ─── */
+.report-section { margin-bottom: 48px; }
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ─── Verdict Banner ─── */
+.verdict-banner {
+  padding: 28px 32px;
+  border-radius: 16px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+.verdict-hire { background: rgba(34,212,163,0.06); border-color: rgba(34,212,163,0.3); }
+.verdict-no-hire { background: rgba(242,96,96,0.06); border-color: rgba(242,96,96,0.3); }
+.verdict-training { background: rgba(245,166,35,0.06); border-color: rgba(245,166,35,0.3); }
+.verdict-neutral { background: var(--surface); border-color: var(--border); }
+
+.verdict-icon { font-size: 32px; flex-shrink: 0; }
+.verdict-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+.verdict-sub { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+/* ─── Score Grid ─── */
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.score-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.score-card:hover { border-color: var(--border-active); }
+.score-q-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+.score-number {
+  font-family: 'DM Serif Display', serif;
+  font-size: 40px;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.score-number.high { color: var(--score-high); }
+.score-number.mid { color: var(--score-mid); }
+.score-number.low { color: var(--score-low); }
+.score-bar {
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 3px;
+  border-radius: 0 2px 0 0;
+  transition: width 1s ease;
+}
+.score-bar.high { background: var(--score-high); }
+.score-bar.mid { background: var(--score-mid); }
+.score-bar.low { background: var(--score-low); }
+
+/* ─── Executive Summary ─── */
+.executive-summary-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-bottom: 16px;
+  line-height: 1.8;
+  font-size: 15px;
+  color: var(--text);
+  font-weight: 300;
+}
+
+/* ─── Analysis Grid ─── */
+.analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.analysis-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: border-color 0.2s;
+}
+.analysis-card:hover { border-color: var(--border-active); }
+.analysis-card-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.analysis-card-body {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+/* ─── Q&A Accordion ─── */
+.qa-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.qa-item:hover { border-color: var(--border-active); }
+
+.qa-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  cursor: pointer;
+  gap: 16px;
+}
+.qa-header-left { flex: 1; min-width: 0; }
+.qa-q-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.qa-q-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.qa-q-type {
+  font-size: 10px;
+  padding: 1px 7px;
+  border-radius: 100px;
+  font-family: 'DM Mono', monospace;
+}
+.qa-q-type.intro { background: rgba(34,212,163,0.12); color: var(--accent-2); }
+.qa-q-type.technical { background: rgba(124,106,247,0.15); color: var(--accent); }
+.qa-q-type.behavioural { background: rgba(245,166,35,0.12); color: var(--warn); }
+
+.qa-q-text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.qa-score-pill {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  flex-shrink: 0;
+  min-width: 44px;
+  text-align: right;
+}
+
+.qa-body {
+  padding: 0 22px 22px;
+  border-top: 1px solid var(--border);
+  display: none;
+}
+.qa-body.open { display: block; }
+
+.qa-section-label {
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+.qa-transcript {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  padding: 14px 16px;
+  background: var(--surface-2);
+  border-radius: 10px;
+  font-style: italic;
+}
+.qa-feedback {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.behavioral-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.beh-chip {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: 'DM Mono', monospace;
+}
+
+@media (max-width: 900px) {
+  .report-body { padding: 24px; }
+  .analysis-grid { grid-template-columns: 1fr; }
+}
+/* ─── Graph Grid ─── */
+.graphs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.graph-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  transition: border-color 0.2s;
+}
+.graph-card:hover { border-color: var(--border-active); }
+.graph-card-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.graph-card-desc {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+.graph-img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+/* ─── PDF Download Button ─── */
+.btn-download-pdf {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(34,212,163,0.1);
+  border: 1px solid rgba(34,212,163,0.3);
+  color: var(--accent-2);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  border-radius: 8px;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.btn-download-pdf:hover {
+  background: rgba(34,212,163,0.18);
+  border-color: rgba(34,212,163,0.5);
+}
+.btn-download-pdf:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ─── Extra Q-type badge colours ─── */
+.qa-q-type.resume_probe {
+  background: rgba(124,106,247,0.2);
+  color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .graphs-grid { grid-template-columns: 1fr; }
+}
